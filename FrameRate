@@ -1,0 +1,52 @@
+Smoother rendering tips via FrameRate -
+
+
+Too much:
+    speed += acceleration * Time.deltaTime;
+    transform.position += Vector3.right * speed * Time.deltaTime;
+|              /
+|             /
+|            /
+|           / 
+|        __/_____      
+|       | /      |
+|       |/       |
+|_______|________|_____________
+
+Too little:
+    transform.position += Vector3.right * speed * Time.deltaTime;
+    speed += acceleration * Time.deltaTime;
+|              /
+|             /
+|            /
+|           / 
+|          /      
+|         /______
+|        /|      |
+|_______/_|______|_____________
+
+
+Therefore: Half & Half
+--------------------------------------------------------------------------------------------
+public class Accelerate : CustomDeltaTime
+{
+  float acceleration = 1;
+  float speed = 0;
+  
+  void Update()
+  {
+    speed += acceleration * Time.deltaTime * 0.5f;
+    transform.position += Vector3.right * speed * Time.deltaTime;
+    speed += acceleration * Time.deltaTime * 0.5f;
+  }
+}
+--------------------------------------------------------------------------------------------
+
+
+Notes:
+
+- Using Time.deltaTime in Fixed Update is actually fine in Unity 
+  cause it automatically returns Time.fixedDeltaTime depending on where it is called from.
+
+- Using Delta Time in fixed update still makes sense for various reasons 
+  (it keeps speed to units/second and helps when inaccuracies in the fixed update intervals occur)
