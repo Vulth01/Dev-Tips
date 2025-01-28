@@ -43,6 +43,11 @@ public class Accelerate : CustomDeltaTime
 --------------------------------------------------------------------------------------------
 
 
+Perfect Solution: variable += averageChangeSpeed * deltaTime
+Approx. Solution: variable += changeSpeed * deltaTime
+
+
+
 Notes:
 
 - Using Time.deltaTime in Fixed Update is actually fine in Unity 
