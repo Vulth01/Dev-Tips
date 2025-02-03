@@ -1,0 +1,7 @@
+
+
+Accidentally commit to 'main' from 'test' branch -> How do I fix this:
+
+- Go to Github Desktop         ->   Select 'History' tab       ->   Right click latest intended commit  ->   Create branch from commit  ->   Publish branch
+- Go to github.com             ->   Select 'Settings'          ->   Under 'General' section             ->   Under 'Default branch'     ->   Select 'Switch to another branch'   ->   Select new branch -> Update
+- Branch will overwrite 'main' ->   I renamed mine to 'master' ->   Delete the 'main' branch            ->   Open Github Desktop        ->   Select 'master' branch              ->   Pull from origin
