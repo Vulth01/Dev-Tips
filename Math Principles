@@ -1,0 +1,105 @@
+# Math Principles for 3D Game Development
+
+1. **Vectors**
+   - Vectors are used to represent positions, directions, and velocities in 3D space.
+   - Example: A vector (1, 2, 3) represents a point or direction in 3D space.
+
+2. **Vector Operations**
+   - Addition, subtraction, dot product, cross product, and scalar multiplication.
+   - Example (Dot Product): `a = (1, 0, 0)`, `b = (0, 1, 0)` → `a . b = 0` (shows perpendicularity).
+
+3. **Matrices**
+   - Matrices are used to represent transformations like translation, rotation, and scaling.
+   - Example (Translation Matrix):
+     ```
+     [ 1 0 0 tx ]
+     [ 0 1 0 ty ]
+     [ 0 0 1 tz ]
+     [ 0 0 0  1 ]
+     ```
+     where `tx, ty, tz` are the translation components.
+
+4. **Transformation (Translation, Rotation, Scaling)**
+   - These are operations to modify an object's position, orientation, or size.
+   - Example (Scaling): Scaling a vector `(2, 3, 4)` by a factor of 2 gives `(4, 6, 8)`.
+
+5. **Rotation Matrices**
+   - Rotation in 3D space is done around an axis using rotation matrices.
+   - Example: A 90-degree rotation around the Z-axis is represented as:
+     ```
+     [ cos(θ) -sin(θ) 0 ]
+     [ sin(θ) cos(θ)  0 ]
+     [ 0       0       1 ]
+     ```
+
+6. **Quaternions**
+   - A more efficient and stable way of handling rotations than Euler angles, especially to avoid gimbal lock.
+   - Example: `q = (w, x, y, z)` represents a quaternion.
+
+7. **Coordinate Systems**
+   - Different types of coordinate systems are used, including world space, object space, and camera space.
+   - Example: World space is the global reference system, while object space is relative to an object’s local origin.
+
+8. **Projection**
+   - Projection transforms 3D coordinates into 2D coordinates for rendering.
+   - Example (Perspective Projection): A point at `(x, y, z)` might be projected onto the screen based on the camera’s view.
+
+9. **Cameras and View Matrices**
+   - The view matrix defines the position and orientation of the camera in world space.
+   - Example: A simple camera looking along the Z-axis might use a view matrix that moves objects towards or away from the camera.
+
+10. **Frustum Culling**
+    - This involves determining which objects are within the viewable area (frustum) of the camera.
+    - Example: Objects outside of the frustum are not rendered to save computational resources.
+
+11. **Collision Detection**
+    - Mathematical algorithms to detect if two objects intersect or collide in 3D space.
+    - Example: Using bounding boxes or spheres to approximate the shape of an object and check for overlap.
+
+12. **Interpolation (Lerp, Slerp)**
+    - Linear interpolation (Lerp) and spherical linear interpolation (Slerp) are used to smoothly transition between values.
+    - Example (Lerp): `Lerp(start, end, t)` where `t` is a value between 0 and 1. If `t = 0.5`, the result is halfway between `start` and `end`.
+
+13. **Normal Vectors**
+    - Normal vectors are used in lighting calculations and collision detection to define surfaces.
+    - Example: The normal to a flat plane with equation `ax + by + cz = d` is the vector `(a, b, c)`.
+
+14. **Lighting (Phong, Lambertian Reflection)**
+    - Models how light interacts with surfaces, using vectors for reflection, diffuse, and specular components.
+    - Example: Lambertian reflection is a diffuse reflection model, where the intensity is proportional to the cosine of the angle between the surface normal and light direction.
+
+15. **Bezier Curves and Splines**
+    - Used to model smooth paths and surfaces in 3D space, often for animation and movement.
+    - Example: A cubic Bezier curve with control points `(P0, P1, P2, P3)` can be used to generate a smooth path.
+
+16. **Euler Angles**
+    - A method of representing rotation using three angles (pitch, yaw, and roll).
+    - Example: A rotation of 90° around the X-axis followed by 90° around the Y-axis.
+
+17. **Animation**
+    - Mathematical interpolation methods are used to smoothly animate objects and characters.
+    - Example: Keyframe animation uses matrices and interpolation to move between keyframes.
+
+18. **Inverse Kinematics (IK)**
+    - Used to calculate the movement of a chain of bones in a skeleton to reach a target position.
+    - Example: A character's hand moving to touch an object while the arm adjusts accordingly.
+
+19. **Barycentric Coordinates**
+    - A coordinate system used for triangular meshes, often in rendering and texture mapping.
+    - Example: Given a triangle with vertices A, B, and C, barycentric coordinates help determine the position of a point inside the triangle.
+
+20. **Perlin Noise**
+    - A gradient noise function used for procedural generation, terrain creation, and texture mapping.
+    - Example: It’s used to create natural-looking randomness like terrain heightmaps or clouds.
+
+21. **Shader Math (For GLSL/HLSL)**
+    - Mathematical techniques used in shaders, including transformations, lighting, and texture mapping.
+    - Example: A shader may compute lighting using the dot product of normal and light vectors to simulate light intensity.
+
+22. **Level of Detail (LOD)**
+    - A technique that reduces the complexity of 3D models based on their distance from the camera.
+    - Example: A distant tree model is represented by a low-poly version, while a close tree uses a high-poly version.
+
+23. **Simulating Physics**
+    - Use of calculus, vectors, and forces to simulate movement, gravity, and collisions in 3D space.
+    - Example: Newton's Second Law `F = ma` can be used to simulate how objects move under the influence of forces.
